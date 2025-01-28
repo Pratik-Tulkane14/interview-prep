@@ -1,4 +1,3 @@
-My apologies for not formatting the answers in the same structured way as the previous ones! Here’s the revised version with a more detailed, organized format:
 
 ---
 
@@ -214,6 +213,4 @@ My apologies for not formatting the answers in the same structured way as the pr
 ---
 
 ### 32. **What is hoisting in JavaScript?**
-   - **Answer**: Hoisting refers to JavaScript's behavior of moving declarations to the top of their scope during the compile phase
-
-, before the code is executed.
+   - **Answer**: Hoisting refers to JavaScript's behavior of moving declarations to the top of their scope during the compile phase, before the code is executed.

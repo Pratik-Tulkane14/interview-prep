@@ -1,6 +1,3 @@
-Sure! Here are some common TypeScript (TS) interview questions along with their solutions:
-
-### TypeScript Questions and Answers:
 
 1. **What is TypeScript?**
 
