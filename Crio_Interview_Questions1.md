@@ -121,13 +121,13 @@ Functionality:
 map() iterates over each element in an array and applies a function to each element, returning a new array with the transformed elements. It's used for transforming the shape of data.
 filter() also iterates over each element but returns a new array containing only those elements that satisfy a specified condition. It's used for selecting a subset of data.
 reduce() iterates through each element, applying a reducer function to accumulate or reduce the array elements into a single value. It's typically used for summing up values or combining them in a particular way.
-Return Values:
 
+Return Values:
 map() returns a new array of the same length as the original, but with each element transformed.
 filter() returns a new array that might be smaller than the original, as it only includes elements that pass a test.
 reduce() can return any value type (array, object, number, etc.) based on the logic implemented in the reducer function.
-Use Cases:
 
+Use Cases:
 map() is ideal for transformations, like converting temperatures from Celsius to Fahrenheit, or mapping a list of user objects to a list of usernames.
 filter() is suited for scenarios like filtering a list of users based on age criteria or extracting elements from an array that meet certain conditions.
 reduce() is used in scenarios like summing up all numbers in an array, or concatenating an array of strings into a single string.
@@ -142,17 +142,13 @@ filter(): Consider an e-commerce application where we need to show products that
 reduce(): In a shopping cart application, to calculate the total price, we can use reduce() to sum up the prices of all items in the cart.
 
 ## 5 What is a callback function in JavaScript?
+
 Need for it:
-
 In JavaScript, much of the programming involves dealing with asynchronous operations like API requests, file operations, or timers. Without a mechanism to handle these asynchronous tasks, JavaScript code could become blocked or unresponsive while waiting for these operations to complete. Callbacks provide a way to ensure that certain code doesn’t execute until other code has finished execution, thus enabling non-blocking, asynchronous programming.
-
- 
 
 What is it?:
 
 A callback is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of action or routine. In JavaScript, because functions are first-class objects, you can pass functions as parameters to other functions and call them inside the outer function.
-
- 
 
 Use-case example:
 
@@ -162,6 +158,7 @@ const numbers = [1, 2, 3, 4, 5];
 const doubled = numbers.map(number => number * 2);
 
 ## 6 Differentiate between the rest and spread operators in javascript
+
 The rest and spread operators are both features introduced in JavaScript ES6 that allow for more flexible handling of arrays and objects.
 
 Rest Operator:
@@ -197,9 +194,7 @@ Overall, the rest operator is used to gather multiple function arguments into an
 
 ## 7 Differentiate between let, var, and const in JavaScript
 In JavaScript, let, var, and const are used to declare variables, but they have some differences in terms of scope, hoisting, and reassignment. Here’s a concise and structured explanation differentiating between these three:
-
 var:
-
 var is the oldest way to declare variables in JavaScript.
 
 It has function scope, meaning it is accessible within the function it is declared in, regardless of block scope.
@@ -208,7 +203,6 @@ var allows redeclaration and reassignment of variables within its scope.
 It is recommended to avoid using var in modern JavaScript development due to its potential issues with hoisting and scope.
 
 let:
-
 let was introduced in ES6 (ECMAScript 2015) as a replacement for var.
 
 It has block scope, meaning it is only accessible within the block it is declared in (e.g., within loops or if statements).
@@ -217,7 +211,6 @@ let does not allow redeclaration of variables within the same scope, but it allo
 It is commonly used when you need to reassign a variable or limit its scope to a specific block.
 
 const:
-
 const was also introduced in ES6 and stands for “constant.”
 
 It has block scope, similar to let.
@@ -238,19 +231,18 @@ When the execution stack is empty, the event loop checks the queues and executes
 Asynchronous Techniques:
 
 Callbacks:
-
 Functions passed as arguments to be invoked upon the completion of an asynchronous operation.
 However, nesting callbacks can lead to callback hell, making code hard to manage.
-Promises:
 
+Promises:
 Represent the eventual result of an asynchronous operation.
 They allow chaining with .then() and handling errors with .catch(), providing a more structured approach to async code.
-Async/Await:
 
+Async/Await:
 Syntactic sugar built on top of Promises, making asynchronous code appear synchronous.
 Async functions return Promises, and await suspends the execution until a Promise settles, enhancing code readability and maintainability.
-Things to Keep in Mind:
 
+Things to Keep in Mind:
 Callback Nesting:
 
 Deeply nested callbacks can lead to code complexity and maintenance issues.
