@@ -1,4 +1,3 @@
-
 ---
 
 ###  1. **What is ECMAScript in JavaScript?**
@@ -104,11 +103,54 @@ console.log(multiply(5)) // 50
 
 ### 4. **What is a deep copy and shallow copy in JavaScript?**
 
-- **Answer**:
-  - **Shallow Copy**: A shallow copy copies only the top-level properties of an object. If the object contains nested objects, it only copies references to them. Example: `Object.assign({}, obj)`
-  - **Deep Copy**: A deep copy creates a completely new object with all levels copied, including nested objects. Example: `JSON.parse(JSON.stringify(obj))`
+Shallow copy and Deep copy are methods used to create copies of objects or arrays in JavaScript. 
 
----
+1. Shallow copy: It creates a new object or array that shares references to the original object's or array's properties or elements.
+  - Used when you want to create a copy that references the same underlying data as the original object or array.
+  - It can be done using the spread operator, Object.assign(), or Array.slice() method.
+
+  Example:
+
+const originalObj = { a: 1, b: 2 };
+const shallowCopy = { ...originalObj };
+originalObj.a = 10;
+console.log(shallowCopy.a); // Output: 1 (originalObj and shallowCopy reference the same underlying data)
+ 
+
+2. Deep copy: It creates a completely independent copy of an object or array with its own separate memory allocations.
+
+  - Used when you want to create a copy that does not affect the original object or array and has its own separate values.
+
+  - It can be done using JSON.stringify() and JSON.parse() methods, or by implementing a recursive copy function.
+
+ 
+
+  Example:
+
+ const originalArray = [1, 2, [3, 4]];
+ const deepCopy = JSON.parse(JSON.stringify(originalArray));
+ originalArray[2][0] = 5;
+ console.log(deepCopy[2][0]); // Output: 3 (deepCopy is completely independent of originalArray)
+ // Recursive copy function
+ function deepCopyObject(obj) {
+   if (typeof obj !== 'object' || obj === null) {
+     return obj;
+   }
+   const copy = Array.isArray(obj) ? [] : {};
+   for (const key in obj) {
+     copy[key] = deepCopyObject(obj[key]);
+   }
+   return copy;
+ }
+ 
+
+Takeaways / Best practices:
+
+- Shallow copy is sufficient when you need to create a new reference to an object or array without duplicating the data. It is more performant than deep copy.
+
+- Deep copy should be used when you want to ensure complete independence of the copied object or array.
+
+- Be careful with circular references or functions inside the object, as they may not be properly copied using simple shallow or deep copy methods.
 
 ### 5. **What is a promise, callback function, and async/await in JavaScript?**
 
@@ -317,67 +359,37 @@ function* gen() {
 ---
 
 ### 31. **What is closure in JavaScript?**
+Need for it
+Closures are a powerful feature of JavaScript, enabling function encapsulation and private data management. 
+They are fundamental to functional programming in JavaScript and are crucial for writing efficient and modular code.
+ 
 
-- **Answer**:A closure is a fundamental JavaScript concept where a function retains access to variables from its outer (enclosing) lexical scope even after the outer function has returned. In other words, it's a function bundled together with references to its surrounding state.
+What is it
+A closure is a function that remembers the environment or scope in which it was created. This means it retains access to the variables in its lexical scope even after the outer function has returned. 
+In JavaScript, every function creates a closure, including functions within functions (nested functions).
+ 
 
-function outerFunction() {
-let name ="Pratik";
-function innerFunction(){
-console.log(name);
+How is it used
+Closures are often used to create private variables or functions. Since JavaScript doesn’t have built-in support for private variables, closures can encapsulate variables, making them accessible only to certain functions. This is useful for data encapsulation and object data privacy. 
+Closures are also used in event handling, callbacks, and maintaining state in asynchronous operations.
+ 
+
+Example in JavaScript
+Here's a simple example in JavaScript:
+
+function outerFunction(outerVariable) {
+   return function innerFunction(innerVariable) {
+       console.log('Outer Variable:', outerVariable);
+       console.log('Inner Variable:', innerVariable);
+   };
 }
-innerFunction();
-}
-outerFunction()
-
-function outerFunction (){
-let name ="Pratik";
-function innerFunction(){
-console.log(name);
-}
-return innerFunction
-}
-let closure = outerFunction();
-closure();
-
-Real-world Applications:
-
-Module patterns
-Currying
-Event handlers
-Partial application
-Maintaining state in async operations
-
-Real life ex:
-
-function createBankAccount(initialBalance) {
-let balance = initialBalance;
-
-    return {
-        deposit: function(amount) {
-            balance += amount;
-            return balance;
-        },
-        withdraw: function(amount) {
-            if (amount > balance) {
-                throw new Error('Insufficient funds');
-            }
-            balance -= amount;
-            return balance;
-        },
-        getBalance: function() {
-            return balance;
-        }
-    };
-
-}
-
-const account = createBankAccount(100);
-account.deposit(50); // 150
-account.withdraw(30); // 120
-account.getBalance(); // 120
-// balance variable is private and can't be accessed directly
-
----
+const newFunction = outerFunction('outside');
+newFunction('inside');
+outerFunction is defined with one parameter outerVariable.
+Inside outerFunction, an innerFunction is defined and returned. innerFunction takes one parameter innerVariable.
+innerFunction has access to both outerVariable and innerVariable because of the closure.
+When outerFunction is called with 'outside', it returns innerFunction.
+newFunction now holds the innerFunction returned by outerFunction, and when newFunction is called with 'inside', it logs both outerVariable and innerVariable.
 
 # Currying in JavaScript
 
