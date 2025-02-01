@@ -1,5 +1,4 @@
 ## 1 What is debouncing?
-Debouncing:
 
 Debouncing is a programming practice used to ensure that a function doesn't fire too often. This can be particularly important for functions that run expensive operations or are attached to high-frequency events like keypress or scroll.
 It works by delaying the execution of a function until a certain amount of time has passed since it was last called.
@@ -21,10 +20,12 @@ console.log(‘Resize event handling’);
 }, 250));
 
 ## 2 What is caching, and what are the different types of caching?
+
 📌 Need for Caching:
 Performance Improvement: Caching is needed to improve the performance and responsiveness of applications by storing frequently accessed data closer to the user, reducing the need for repeated computations or network requests.
 What is Caching:
 Storage Mechanism: Caching involves storing copies of data in a temporary storage location, such as memory or disk, to expedite future access to that data. When requested again, the cached data can be quickly retrieved without the overhead of re-computation or network latency.
+
 ❓ How Caching is Used in the Real World:
 Web Browsers: Web browsers use caching to store copies of web pages, images, and other resources locally to speed up page loading times and reduce server load.
 
@@ -32,7 +33,7 @@ Content Delivery Networks (CDNs): CDNs cache static assets such as images, video
 
 Database Query Caching: Database systems use query caching to store the results of frequently executed queries in memory, reducing the processing time required to retrieve the same data repeatedly.
 
-Different Types of Caching:
+## Different Types of Caching:
 Browser Cache: Web browsers cache resources such as HTML pages, CSS files, JavaScript files, and images locally to speed up page loading times.
 
 CDN Cache: Content Delivery Networks cache static content such as images, videos, and scripts across multiple distributed servers to deliver content more efficiently to users.
@@ -42,22 +43,15 @@ Database Query Cache: Database systems cache the results of frequently executed 
 Object Caching: Applications cache objects or data structures in memory to avoid redundant computation or database queries, improving overall performance.
 
 ## 3 What is currying in Javascript?
- 
 
 Need
 Currying makes it easier to create new functions by reusing existing functions. It’s like creating custom tools from a more general tool.
 
- 
-
 What is it?
 Currying is a technique where a function with multiple arguments is transformed into a series of functions, each with just one argument.
 
- 
-
 How is it used?
 Customizing Functions: You can use currying to make a customized function from a general one.
-
- 
 
 // Function to multiply two numbers
 function multiply(a, b) {
@@ -72,13 +66,15 @@ function curryMultiply(a) {
 // Create a new function that doubles numbers by currying the multiply function with 2
 const double = curryMultiply(2);
 console.log(double(5)); // Outputs: 10
- 
 
 Saving Arguments for Later: With currying, you can “save” one argument and use it later.
 
-const triple = curryMultiply(3); // Save 3 for multiplying later.
-console.log(triple(7)); // Outputs: 21
-In these examples, we’ve made double and triple functions from the general multiply function. This is the essence of currying. 
+## Key Points:
+
+1. A curried function returns another function until all arguments are satisfied
+2. It allows partial application of a function's arguments
+3. Makes code more reusable and modular
+4. Helps in creating more flexible function compositions
 
 ## 4 Define Callback Hell in Javascript
 Callback Hell in JavaScript refers to the situation where multiple asynchronous operations are nested within each other, resulting in deeply nested and unreadable code. This occurs when callbacks are used to handle the asynchronous nature of JavaScript, leading to a pyramid-like structure of callbacks within callbacks.
@@ -114,68 +110,38 @@ By using Promises, the code becomes more linear and easier to understand, as eac
 
 ## 5 Prototypes
 Why does typeof of a string return 'string' but that of an array return 'obj' and not 'array'?
- 
 
 Why: 
-
- 
-
 Javascript typeof returns a “string” for a strings, because it is a primitive data type.
 Whereas arrays are non-primitive data type. In Javascript, arrays are objects with additional properties and methods that allow them to store and manipulate a collection of values in a specific way.
  
-2 important things to keep in mind:
+## 2 important things to keep in mind:
 
 We can use the Array.isArray() method to check if a value is an array
 When checking the type of a null value, typeof returns ‘object’ instead of ‘null’. This happens due to a historical mistake in the implementation of javascript.
- 
-
-Application of it in your project
-
-<Share 2 instances of where you've used it in your project>
-
- 
 
 What is a prototype in JavaScript?
- 
-
 Need of it: 
-
 Prototypes in JavaScript solve the problem of code reuse and inheritance by providing a way to share properties and methods between objects.
- 
 
 What it is: 
-
 Prototypes allows to implement inheritance in JavaScript and create complex object hierarchies
 Every object in JavaScript has a prototype property, which can be used to define properties and methods that are shared between objects.
- 
 
 How it is used: 
 
 To define a prototype, add properties and methods to the prototype property of a constructor function.
 To create a new object from a prototype, use the new keyword and call the constructor function.
 To check if an object has a specific property, use the hasOwnProperty() method to check if the property is defined on the object itself or on its prototype chain.
-To create a prototype chain, set the prototype of one object to another object using the Object.create() method.
- 
-
-Application of it in your project
-
-<Share 2 instances of where you've used it in your project>
-
- 
+To create a prototype chain, set the prototype of one object to another object using the Object.create() method. 
 
 Prototypal inheritance vs object-oriented inheritance 
  
 Intro line: 
 
- 
-
 Both prototypal inheritance and object-oriented inheritance are mechanisms for creating relationships between objects and allowing for code reuse.
- 
 
-3 points of Comparison: 
-
- 
-
+## 3 points of Comparison: 
 Inheritance Model: 
 Prototypal Inheritance: Native JavaScript inheritance model.
 Object-Oriented Inheritance: Mimics classical inheritance using class syntax found in languages like Java or C#.
@@ -189,10 +155,8 @@ Object-Oriented Inheritance: Uses constructor functions, super keyword, and the 
 ## 6 What are the differences between arrow functions and function expressions in JS?
 Introduction
 In JavaScript, both arrow functions and function expressions are used to define functions, but they have distinct characteristics and use cases. Arrow functions, introduced in ECMAScript 6 (ES6), offer a more concise syntax and have different behavior regarding the this keyword compared to traditional function expressions.
-
  
-Differences Between Arrow Functions and Function Expressions
- 
+## Differences Between Arrow Functions and Function Expressions
 
 Syntax and Conciseness
 
@@ -209,6 +173,7 @@ const add = (a, b) => a + b;
 Handling of this
 
 Arrow Functions: Lexically bind the this value, meaning they inherit this from the surrounding context where they are defined. This makes them unsuitable for methods or functions that need their own this context.
+
 Function Expressions: Have their own this context, which is dynamically determined based on how the function is called. This makes them suitable for methods where this needs to refer to the object calling the method.
 function Counter() {
   this.count = 0;
@@ -226,7 +191,6 @@ function Counter() {
   }, 1000);
 }
 new Counter(); // `this` refers to the Counter instance
- 
 
 Use as Constructors
 
@@ -257,22 +221,27 @@ const obj = {
 console.log(obj.getValue()); // Output: 42
 
 ## 7 What is lazy loading and debouncing?
-Lazy Loading:
+
 🔍 What is it?
 Lazy loading is a technique used to defer the loading of non-critical resources (such as images, scripts, or content) until they are needed. Instead of loading all resources upfront when the page loads, lazy loading delays the loading process until the user requests or interacts with the specific content.
+
 ❓ How is it used?
 Lazy loading is implemented using JavaScript to detect when elements enter the viewport or when certain conditions are met (e.g., user scrolling). When triggered, the JavaScript code dynamically loads the resources, typically via AJAX requests or by dynamically adding <script> or <img> tags to the DOM.
-Why is it needed?
+
+## Why is it needed?
 Lazy loading can significantly improve page load times and reduce initial page weight, especially for pages with large images or extensive content. By deferring the loading of non-essential resources, lazy loading prioritizes the loading of critical content, resulting in a faster and smoother user experience.
+
 Examples:
 Lazy loading images in a photo gallery: Images are loaded only when they are about to come into view as the user scrolls down the page.
 Lazy loading JavaScript libraries: External JavaScript libraries are loaded only when a specific feature that requires them is activated by the user.
-Debouncing:
+
+## Debouncing:
 🔍 What is it?
 Debouncing is a technique used to limit the rate at which a particular function is executed, especially in response to rapid or frequent events like scrolling, resizing, or typing. It prevents the function from being called multiple times in quick succession, ensuring that it is only executed after a specified delay has passed since the last invocation.
 ❓ How is it used?
 Debouncing is typically implemented using a timer mechanism. When the event is triggered, a timer is started with a delay value. If the event is triggered again before the timer expires, the previous timer is canceled, and a new timer is started. The function is executed only after the timer has elapsed without further events.
-Why is it needed?
+
+##  Why is it needed?
 Debouncing is needed to optimize performance and prevent unnecessary or excessive function calls in response to rapid events. Without debouncing, functions like event handlers or API requests may be invoked too frequently, leading to performance issues or unintended behavior.
 Examples:
 Debouncing the window resize event: When the user resizes the browser window, a function to adjust the layout or perform calculations is invoked only after the user has finished resizing, preventing unnecessary reflows or recalculations during rapid resizing.
@@ -378,6 +347,7 @@ Arrow Functions:
 Arrow functions are a more concise syntax for writing function expressions in JavaScript, introduced in ECMAScript 6 (ES6). Unlike normal functions, arrow functions do not have their own this context and are not suitable for use as constructors.
 ❓ How is it used?
 Arrow functions can be used in place of traditional function expressions, especially for short anonymous functions. They have a simpler syntax and lexically bind the this value, meaning they inherit this from the surrounding code.
+
 Why is it needed?
 Arrow functions provide a more concise syntax for defining functions, making the code cleaner and easier to read. They also eliminate the need to use bind, call, or apply to maintain the correct this context.
 Examples:
@@ -408,12 +378,14 @@ Use Cases: Arrow functions are often used for short anonymous functions and for 
 Type of undefined:
 🔍 What is it?
 undefined is a primitive data type in JavaScript that represents the absence of a value. It is typically used to indicate that a variable has not been assigned a value.
+
 ❓ How is it used?
 undefined is automatically assigned to variables that have been declared but not initialized with a value.
 It can also be explicitly assigned to variables or properties to indicate the absence of a value or to reset a value to undefined.
 Why is it needed?
 undefined serves as a default value for uninitialized variables, allowing developers to check if a variable has been assigned a value or not.
 It helps identify errors or unintended behavior in code where a value is expected but not provided.
+
 Type of null:
 🔍 What is it?
 null is a primitive data type in JavaScript that represents the intentional absence of any value or an empty value. It is often used to explicitly indicate that a variable or object property does not have a value.
