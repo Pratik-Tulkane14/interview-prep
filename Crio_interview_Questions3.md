@@ -8,6 +8,7 @@ const url = new URL('http://example.com/user/123');
 const pathSegments = url.pathname.split('/'); // Splits the path into segments
 const userId = pathSegments[2]; // Extracts the ID from the URL
 console.log('User ID:', userId);
+
 Console Logging Query Strings:
 Assuming you have a URL like `http://example.com/search?query\=javascript\&sort\=desc`, you can extract and log the query parameters using plain JavaScript:
 
@@ -27,11 +28,16 @@ Logging Sensitive Data: Avoid logging sensitive information such as passwords, A
 When you visit a website, the process of loading HTML and JavaScript files, along with other resources like CSS and images, is a multi-step process that involves both your web browser and the web server hosting the website. Here's a simplified overview of how this process works:
 
 DNS Lookup: The first step is finding the IP address of the website you're trying to visit. When you enter a website's URL into your browser, it performs a DNS (Domain Name System) lookup to translate the human-readable domain name into an IP address that identifies the server where the website is hosted.
+
 HTTP Request: Once the IP address is known, your browser sends an HTTP (Hypertext Transfer Protocol) request to the server asking for the website's content. This request includes headers that specify the type of content the browser can accept.
 Server Response: The server receives the request and processes it. If the requested resource (like an HTML file) is available, the server responds with an HTTP response message, which includes the requested content along with a status code (e.g., 200 OK) indicating the request was successful.
+
 Loading HTML: The browser starts by loading the HTML file. HTML (Hypertext Markup Language) is the backbone of most web pages and defines the structure and layout of a webpage. The browser reads the HTML content and begins to parse it, converting the tags and attributes into a DOM (Document Object Model) tree that represents the structure of the webpage in memory.
+
 Processing Resources: As the browser parses the HTML, it encounters tags that reference external resources such as CSS files (for styling), JavaScript files (for interactivity), and images. The browser sends additional HTTP requests to fetch these resources. JavaScript files and CSS are particularly important for the functionality and appearance of the page.
+
 Executing JavaScript: JavaScript files can be loaded in the <head> or <body> of the HTML, and how they're loaded (synchronously or asynchronously) can affect the rendering of the page. The browser executes JavaScript, which can modify the DOM, change the displayed content, and alter the behavior of the webpage. This includes adding event handlers, creating or modifying HTML elements, and making asynchronous requests to the server (AJAX calls) for additional data without reloading the page.
+
 Rendering the Page: While JavaScript is being executed, the browser also processes the CSS rules, applies them to the DOM, and performs layout calculations to determine how elements should be positioned and styled on the page. The final step is painting, where the browser draws the content on the screen. This involves drawing text, colors, images, and other visual elements as defined by the HTML and CSS.
 Dynamic Updates: After the initial page load, JavaScript can continue to run in the background, listening for events (like user clicks or keystrokes) and making updates to the DOM. This allows for interactive and dynamic web pages that can respond to user input without needing to reload the page.
 
@@ -47,13 +53,17 @@ Meaning and Context:
 
 Semantic Tags: Semantic tags convey meaning about the content they wrap, making it clear to both browsers and developers what the content represents (e.g., <header>, <footer>, <nav>).
 Non-Semantic Tags: Non-semantic tags, such as <div> and <span>, do not inherently convey meaning about the content they contain. They are generic containers used for styling and layout purposes.
+
 Accessibility and SEO:
 
 Semantic Tags: Semantic markup enhances accessibility by providing structure and context to assistive technologies like screen readers. Additionally, search engines use semantic markup to better understand the content and context of web pages, potentially improving search engine rankings.
+
 Non-Semantic Tags: While non-semantic tags can still be accessible if properly used with ARIA roles and attributes, they don't inherently provide semantic meaning, making it harder for assistive technologies and search engines to interpret the content accurately.
+
 Code Readability and Maintenance:
 
 Semantic Tags: Semantic markup leads to more readable and maintainable code as the purpose of each element is clear from its name. Developers can quickly understand the structure of the document and make changes accordingly.
+
 Non-Semantic Tags: Overuse of non-semantic tags like <div> for structuring can result in cluttered and less readable code, especially in larger projects where it becomes challenging to discern the purpose of each container solely from its class or ID.
 
 Usage in Real World
@@ -72,6 +82,7 @@ Layout Behavior:
 Block: Elements with display: block; occupy the full width available and start on a new line. They stack vertically, taking up the entire width of their parent container.
 Inline: Elements with display: inline; only take up as much width as necessary and do not force new lines. They flow within the content, side by side with other inline elements.
 Inline-block: Elements with display: inline-block; behave similarly to inline elements in that they do not start on a new line. However, they can have dimensions (width, height) and vertical alignment like block elements.
+
 Dimensions:
 
 Block: Block elements have width, height, padding, and margins that you can control. They naturally expand to fill the width of their parent container unless otherwise specified.
