@@ -110,10 +110,7 @@ Deploying a React application to Vercel for seamless deployment and hosting.
 Project Summary
 QKart is an E-commerce application offering a variety of products for customers to choose from.
 
- 
-
 Project Deliverables
-
 Landing Page:
 
 Implemented core logic for authentication, shopping cart, and checkout.
@@ -140,13 +137,11 @@ Added a responsive shopping cart to the Products page.
 Made authenticated POST API calls to implement cart logic.
 Used conditional rendering to display differing cart designs on the Products page and Checkout page.
 Implemented UI and logic to add and select new addresses.
- 
 
 Deployment:
 
 Deployed the QKart React app to Vercel.
 Configured Vercel to support visiting any subpages directly, as React is a single-page application.
- 
 
 Skills Demonstrated:
 
@@ -157,7 +152,6 @@ State Management: Efficient state handling and error management
 Responsive Design: Ensured a seamless experience across devices
 Component Reusability: Modular UI components
 Deployment: Vercel
- 
 
 Key Learnings:
 
