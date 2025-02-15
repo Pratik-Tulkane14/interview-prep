@@ -226,17 +226,17 @@ const matrix = [
 
 // function contigiousSequence(n, arr) {
 
-    // Approach 1
+// Approach 1
 
-    // let sum =0;
-    // let max= -Infinity;
-    // for(let i=0;i<n;i++){
-    //     sum = Math.max(sum+arr[i],arr[i])
-    //     max= Math.max(sum,max)
-    // }
-    // return max 
+// let sum =0;
+// let max= -Infinity;
+// for(let i=0;i<n;i++){
+//     sum = Math.max(sum+arr[i],arr[i])
+//     max= Math.max(sum,max)
+// }
+// return max 
 
-    // Approach 2
+// Approach 2
 
 //     let currSum = 0;
 //     let maxSum = arr[0];
@@ -322,22 +322,121 @@ const matrix = [
 
 // Find length of longest valid parentheses substring
 
-function longestValidParentheses(s) {
-let stack = [];
-let ans = 0;
-stack.push(-1);
-for (let i = 0; i < s.length; i++) {
-    if (s[i] === "(") {
-        stack.push(i);
-    } else {
-        stack.pop();
-        if (stack.length === 0) {
-            stack.push(i)
-        }
-        else {
-            ans = Math.max(ans, i - stack[stack.length - 1])
+// function longestValidParentheses(s) {
+// let stack = [];
+// let ans = 0;
+// stack.push(-1);
+// for (let i = 0; i < s.length; i++) {
+//     if (s[i] === "(") {
+//         stack.push(i);
+//     } else {
+//         stack.pop();
+//         if (stack.length === 0) {
+//             stack.push(i)
+//         }
+//         else {
+//             ans = Math.max(ans, i - stack[stack.length - 1])
+//         }
+//     }
+// }
+// return ans;
+// }
+
+// ################################# Euclidean Algorithm ######################################################################
+
+// WAP to find coprime number
+
+// const coprimeNumbers=(n)=>{
+//     let count =0;
+//     for(let i=0;i<n;i++){
+//         if(gcd(n,i) ===1){
+//             count++;
+//         }
+//     }
+//     return count;
+// }
+// const gcd=(n1,n2)=>{
+//     if(n2==0){
+//         return n1;
+//     } else{
+//         return gcd(n2,n1%n2)
+//     }
+
+// }
+
+//WAP to find localPeak
+const findPeakElement = (num) => {
+    let left = 0;
+    let right = num.length;
+    while (left < right) {
+        let mid = Math.floor((left + right) / 2);
+        if (num[mid] < num[mid + 1]) {
+            left = mid + 1;
+        } else {
+            right = mid;
         }
     }
+    return left
 }
-return ans;
+
+// Capitalize the Title Leetcode Problem 
+
+const capitalizeTitle=(input)=>{
+   return input.split(' ').map((item)=>{
+        if(item.length<=2) return item.toLowerCase();
+    return item[0].toUpperCase() + item.slice(1).toLowerCase();
+    }).join(' ');
 }
+const title ="capiTalIze tHe titLe"
+console.log(capitalizeTitle(title));
+
+// WAP of Promise
+
+const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        const result = true;
+        if (result) {
+            resolve("Promise resolved");
+        } else {
+            reject("Promise rejected");
+        }
+    }, 1000)
+})
+myPromise
+    .then(resolve => console.log(resolve))
+    .catch(reject => console.log(reject));
+
+
+// Find the equal partition index
+
+// var pivotIndex = function (nums) {
+    // Approach 1
+    // let n = nums.length;
+    // let prefixSum = new Array(n);
+    // let sufixSum = new Array(n);
+    // prefixSum[0] = nums[0];
+    // sufixSum[n-1]= nums[n-1];
+    // for(let i=1;i<n;i++){
+    //     prefixSum[i] = prefixSum[i-1] + nums[i];
+    // }
+    // for(let i=n-2;i>=0;i--){
+    //     sufixSum[i] = sufixSum[i+1] + nums[i];
+    // }
+    // for(let i=0;i<n;i++){
+    //     let leftSum = i>0?prefixSum[i-1]:0;
+    //     let rightSum = i<n-1?sufixSum[i+1]:0;
+    //     if(leftSum === rightSum) return i;
+    // }
+    // return -1;
+
+    // Approach 2
+
+    // const n = nums.length;
+    // let leftSum = 0;
+    // const totalSum = nums.reduce((total, index) => total + index, 0);
+    // for (let i = 0; i < n; i++) {
+    //     if (leftSum === totalSum - leftSum - nums[i]) return i;
+    //     leftSum += nums[i];
+    // }
+    // return -1;
+// };
