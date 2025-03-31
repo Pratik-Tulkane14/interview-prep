@@ -234,7 +234,7 @@ const matrix = [
 //     sum = Math.max(sum+arr[i],arr[i])
 //     max= Math.max(sum,max)
 // }
-// return max 
+// return max
 
 // Approach 2
 
@@ -258,7 +258,7 @@ const matrix = [
 //     let prefixSum = new Array(n);
 //     prefixSum[0]= arr[0];
 //     for(let i =1;i<n;i++){
-//         prefixSum[i] = prefixSum[i-1] + arr[i]; 
+//         prefixSum[i] = prefixSum[i-1] + arr[i];
 //     }
 //     return prefixSum
 
@@ -274,6 +274,40 @@ const matrix = [
 // }
 
 // ---------------------------------Kadane's  Algorithm --------------------------------------------
+
+// When to use Kadane's  Algorithm?
+// :- When we have a situation where we have to find the subarray having largest sum in the array & the array contains a +ve & -ve both the values then we can directly use a Kadane's  Algorithm.
+
+// const input =[-2, -3, 4, -1,, -2, 1 ,5 ,-3];
+
+// function contigiousSequence(n, arr) {
+
+// Approach 1
+
+//    let currSum =0;
+//    let maxSum = arr[0];
+//    for(let i=0;i<n;i++){
+//        currSum = currSum +arr[i];
+//        if(currSum>maxSum){
+//            maxSum = currSum;
+//        }
+//        if(currSum <0){
+//            currSum =0;
+//        }
+//    }
+//    return maxSum
+
+// Approach 2 easy pesy
+
+//     let currSum = 0;
+//     let maxSum = -Infinity;
+//     for (let item of arr) {
+//         currSum = Math.max(item, currSum + item);
+//         maxSum = Math.max(maxSum, currSum);
+//     }
+//     return maxSum;
+// }
+
 //below program is combination of prefixSum & sufixSum
 
 // function equalPartition(n, arr) {
@@ -295,7 +329,7 @@ const matrix = [
 // const input = [1, 6, 4, 2, 5]
 // console.log(equalPartition(input.length, input), "equalPartition");
 
-// ############################################Quick Sort Algorithm Implementation###############
+// ############################################ Quick Sort Algorithm Implementation ###############
 
 // Approach  
 // Step 1 :- Take pivot as last element of input array and add base condition because it's a resursion problem
@@ -365,78 +399,242 @@ const matrix = [
 // }
 
 //WAP to find localPeak
-const findPeakElement = (num) => {
-    let left = 0;
-    let right = num.length;
-    while (left < right) {
-        let mid = Math.floor((left + right) / 2);
-        if (num[mid] < num[mid + 1]) {
-            left = mid + 1;
-        } else {
-            right = mid;
-        }
-    }
-    return left
-}
+// const findPeakElement = (num) => {
+//     let left = 0;
+//     let right = num.length;
+//     while (left < right) {
+//         let mid = Math.floor((left + right) / 2);
+//         if (num[mid] < num[mid + 1]) {
+//             left = mid + 1;
+//         } else {
+//             right = mid;
+//         }
+//     }
+//     return left
+// }
 
 // Capitalize the Title Leetcode Problem 
 
-const capitalizeTitle=(input)=>{
-   return input.split(' ').map((item)=>{
-        if(item.length<=2) return item.toLowerCase();
-    return item[0].toUpperCase() + item.slice(1).toLowerCase();
-    }).join(' ');
-}
-const title ="capiTalIze tHe titLe"
-console.log(capitalizeTitle(title));
+// const capitalizeTitle=(input)=>{
+//    return input.split(' ').map((item)=>{
+//         if(item.length<=2) return item.toLowerCase();
+//     return item[0].toUpperCase() + item.slice(1).toLowerCase();
+//     }).join(' ');
+// }
+// const title ="capiTalIze tHe titLe"
+// console.log(capitalizeTitle(title));
 
 // WAP of Promise
 
-const myPromise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        const result = true;
-        if (result) {
-            resolve("Promise resolved");
-        } else {
-            reject("Promise rejected");
-        }
-    }, 1000)
-})
-myPromise
-    .then(resolve => console.log(resolve))
-    .catch(reject => console.log(reject));
+// const myPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         const result = true;
+//         if (result) {
+//             resolve("Promise resolved");
+//         } else {
+//             reject("Promise rejected");
+//         }
+//     }, 1000)
+// })
+// myPromise
+//     .then(resolve => console.log(resolve))
+//     .catch(reject => console.log(reject));
 
 
 // Find the equal partition index
 
 // var pivotIndex = function (nums) {
-    // Approach 1
-    // let n = nums.length;
-    // let prefixSum = new Array(n);
-    // let sufixSum = new Array(n);
-    // prefixSum[0] = nums[0];
-    // sufixSum[n-1]= nums[n-1];
-    // for(let i=1;i<n;i++){
-    //     prefixSum[i] = prefixSum[i-1] + nums[i];
-    // }
-    // for(let i=n-2;i>=0;i--){
-    //     sufixSum[i] = sufixSum[i+1] + nums[i];
-    // }
-    // for(let i=0;i<n;i++){
-    //     let leftSum = i>0?prefixSum[i-1]:0;
-    //     let rightSum = i<n-1?sufixSum[i+1]:0;
-    //     if(leftSum === rightSum) return i;
-    // }
-    // return -1;
+// Approach 1
+// let n = nums.length;
+// let prefixSum = new Array(n);
+// let sufixSum = new Array(n);
+// prefixSum[0] = nums[0];
+// sufixSum[n-1]= nums[n-1];
+// for(let i=1;i<n;i++){
+//     prefixSum[i] = prefixSum[i-1] + nums[i];
+// }
+// for(let i=n-2;i>=0;i--){
+//     sufixSum[i] = sufixSum[i+1] + nums[i];
+// }
+// for(let i=0;i<n;i++){
+//     let leftSum = i>0?prefixSum[i-1]:0;
+//     let rightSum = i<n-1?sufixSum[i+1]:0;
+//     if(leftSum === rightSum) return i;
+// }
+// return -1;
 
+// Approach 2
+
+// const n = nums.length;
+// let leftSum = 0;
+// const totalSum = nums.reduce((total, index) => total + index, 0);
+// for (let i = 0; i < n; i++) {
+//     if (leftSum === totalSum - leftSum - nums[i]) return i;
+//     leftSum += nums[i];
+// }
+// return -1;
+// };
+
+//WAPTF target sum equal to k
+
+// const longestSubarrayHavingSumK=(n,k,nums)=>{
+//     let currSum = 0;
+//     let maxLen = 0;
+//     const sumMap = new Map();
+//     sumMap.set(0,-1);
+//     for(let i=0;i<n;i++){
+//         currSum+= nums[i];
+//         if(sumMap.has(currSum - k)){
+//             maxLen = Math.max(maxLen,i-sumMap.get(currSum-k));
+//         }
+//         if(!sumMap.has(currSum)){
+//             sumMap.set(nums[i],i);
+//         }
+//     }
+//     return maxLen
+// }
+// const input = [10 ,5 ,2, 7 ,1 ,9]
+// console.log(longestSubarrayHavingSumK(input.length, 15 ,input));
+
+// Write a function to move all 0s to the end of an array
+
+// const moveZeroes =(nums)=>{
+//     let nonZeroIndex =0;
+//     for(let item in nums){
+//         if(nums[item] !==0){
+//             [nums[nonZeroIndex], nums[item]] = [nums[item],nums[nonZeroIndex]];
+//             nonZeroIndex++;
+//         }
+//     }
+//     return nums;
+// }
+// const input = [0,1];
+// console.log(moveZeroes(input));
+
+// Find the longest subarray having sum equal to given sum
+
+// const longestSubarrayHavingSumK=(N,K,nums)=>{
+//    let maxLen =0;
+//    let currSum =0;
+//    let map = new Map();
+//    map.set(0,-1);
+//    for(let i=0;i<N;i++){
+//     currSum += nums[i];
+//     if(map.has(currSum -K)){
+//         maxLen = Math.max(maxLen , i- map.get(currSum - K));
+//     }
+//     if(!map.has(currSum)){
+//         map.set(currSum ,i);
+//     }
+//    }
+//    return maxLen;
+// }
+// const input =[10,5,2,7,1,9]
+// console.log(longestSubarrayHavingSumK(input.length,15,input));//4
+
+// WAPTF Diagonal Sum
+
+// const diagonalSumII=(mat)=>{
+//   let sum =0;
+//   let n = mat.length;
+//   for(let i=0;i<n;i++){
+//     sum +=mat[i][i];
+//     if(i !== n-1-i){
+//         sum +=mat[i][n-1-i];
+//     }
+//   }
+//   return sum;
+// }
+// const input =[[1,2,3],[4,5,6],[7,8,9]];
+// console.log(diagonalSumII(input));
+
+// Given an array, rotate the array to the right by k steps
+
+// const rotateArray=(n ,k,nums)=>{
+//     rotate (nums,0,k);
+//     rotate(nums,k,n-1);
+//     rotate(nums,n-1,k);
+//     return nums
+// }
+// const rotate = (nums,start ,end)=>{
+//     let tempt = nums[start];
+//     nums[start] = nums[tempt];
+//     nums[end] = tempt;
+// }
+// const input =[1,2,3,4,5,6,7];
+// console.log(rotateArray(input.length,3,input));
+
+// Reverse order of words in given string
+
+// const reverseWords =(s)=>{
+//     let word = s.split(" ");
+//     let reverseWord = word.map((item)=>{
+//         return item.split("").reverse().join("")
+//     });
+//     return reverseWord.join(" ");
+// }
+
+// const input = "Mr Ding"
+// console.log(reverseWords(input));
+
+// Valid Parentheses
+
+// const isValid =(s)=>{
+//    const stack =[];
+//     const parenthesesData ={
+//         ")":"(",
+//         "}":"{",
+//         "]":"["
+//     }
+//     for(let item of s){
+//         if(item === "(" || item === "{" || item === "["){
+//             stack.push(item);
+//         }else{
+//             if(stack.pop() !== parenthesesData[item]) return false
+//         }
+
+//     }
+//     return stack.length ===0
+// }
+
+// const input = "()[]{}"
+// console.log(isValid(input));
+
+// const firstPalindromeDSA=(words)=>{
+//     for(let item of words){
+//         if(isPalindrome(item)){
+//             return item;
+//         }
+//     }
+// }
+// const isPalindrome=(str)=>{
+//     return str === str.split(" ").reverse().join(" ");
+// }
+// const input = ['abc', 'cca', 'aca', 'aba' ,'cba'];
+// console.log(firstPalindromeDSA(input),"firstPalindromeDSA");
+
+
+
+
+
+const firstPalindromeDSA = (word) => {
+    // Approach 1
+    for(let item of word){
+         if(item.split("").reverse().join("") ===item) return item
+    }
+    return ""
     // Approach 2
 
-    // const n = nums.length;
-    // let leftSum = 0;
-    // const totalSum = nums.reduce((total, index) => total + index, 0);
-    // for (let i = 0; i < n; i++) {
-    //     if (leftSum === totalSum - leftSum - nums[i]) return i;
-    //     leftSum += nums[i];
+    // for (let item of word) {
+
+    //     if (isPalindrome(item)) {
+    //         return item;
+    //     }
     // }
-    // return -1;
-// };
+    // return false;
+}
+// const isPalindrome = (word) => {
+//     return word === word.split("").reverse().join("")
+// }
+const input = ['abc', 'cca', 'aca', 'aba', 'cba'];
+console.log(firstPalindromeDSA(input), "firstPalindromeDSA")
